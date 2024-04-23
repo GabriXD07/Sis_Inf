@@ -1,0 +1,81 @@
+<header>
+    <nav>
+        <div class="container">
+            <div class="navigazione">
+
+                <div class="barra-di-navigazione">
+                    <ul class="fill">
+                        <li *ngIf="container_flag!='home'" align="left">
+                            <img src="/assets/immagini/logo.png" alt="LaTurra logo" width="160" height="200">
+                        </li>
+                    </ul>
+                </div>
+                <div class="barra-di-navigazione" style="margin-inline:20px ;" style="margin-top: 7px;">
+                    <ul class="fill">
+                        <li>
+
+                            <button class="button"  *ngIf="isLogged()" (click)="change_content('tavoli')">Tavoli</button>
+
+                        </li>
+                        <li>
+
+                            <button class="button" *ngIf="isLogged()" (click)="change_content('store')">Menu</button>
+
+                        </li>
+                        <li>
+
+                            <button class="button" *ngIf="isLogged()" (click)="change_content('support')">Support</button>
+
+                        </li>
+                        <li>
+                            <div class="circle">
+                                <button *ngIf="isLogged()" class="button" (click)="logout()">Log-out
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dual-button">
+                                <button *ngIf="!isLogged()" class="left-button" (click)="change_content('login')">Login</button>
+                                <button *ngIf="!isLogged()" class="right-button" (click)="change_content('registrazione')">Sign</button>
+                            </div>
+                        </li>
+                        <li class="circle">
+                            <button *ngIf="isLogged()" class="log-in-button" (click)="change_content('carrello')">
+                                <img class="log-in" src="/assets/immagini/carrello.jpeg" alt="Log-in" width="30px"
+                                    height="30px">
+                            </button>
+                        </li>
+
+                    </ul>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        <div *ngIf="container_flag == 'home'" class="home-only" align="center">
+            <img src="/assets/immagini/logo.png" alt="LaTurra logo" width="560" height="600">
+        </div>
+        
+    </nav>
+
+</header>
+
+
+
+<section>
+    <div class="container-fluid">
+        <div class="riga">
+            <div class="colonna" [ngSwitch]="container_flag">
+                <app-barra-di-ricerca *ngSwitchCase="'barra_ricerca'"></app-barra-di-ricerca>
+                <app-support *ngSwitchCase="'support'"></app-support>
+                <app-store *ngSwitchCase="'store'"></app-store>
+                <app-carrello *ngSwitchCase="'carrello'"></app-carrello>
+                <app-login *ngSwitchCase="'login'"></app-login>
+                <app-tavoli *ngSwitchCase="'tavoli'"></app-tavoli>
+                <app-registrazione *ngSwitchCase="'registrazione'"></app-registrazione>
+                <app-aggiungi-piatto *ngSwitchCase="'aggiungi-piatto'"></app-aggiungi-piatto>
+            </div>
+        </div>
+    </div>
+</section> 

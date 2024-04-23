@@ -1,0 +1,63 @@
+<!-- ------------------- -->
+<h1 style="text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color: navy;"> Carrello</h1>
+<ul *ngFor="let i of piatto" list-style-type="none">
+    <li>
+        <div id="container">
+            <div class="product-details">
+
+                <h1 >{{i.piatto.nomePiatto}}</h1>
+
+                <p class="information">{{i.piatto.ingredienti}}</p>
+
+
+
+                <div class="control">
+                    <br>
+                    <div class="plus-min">
+                        <p clas="num"><b>Quantità selezionata: {{i.quantita}}</b></p>
+                        <button class="minus" (click)="diminuisci(piatto.indexOf(i))">
+                            -
+                        </button>
+                        <br>
+                        <br>
+                        <button  class="elimina" (click)="elimina(piatto.indexOf(i))" style="font-size: 15px;">Elimina</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="product-image">
+
+                <div class="info">
+                    <h2> Descrizione</h2>
+                    <ul>
+                        <li><strong>Piatto: </strong>{{i.piatto.nomePiatto}} </li>
+                        <li><strong>Ingredienti:</strong>{{i.piatto.ingredienti}} </li>
+                        <li><strong>Prezzo: </strong>{{i.piatto.prezzo}}</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </li>
+</ul>
+
+<div class="riepilogo">
+    <h1 style="text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: navy; font-size: 50px;">
+        Riepilogo Carrello!
+    </h1>
+    <p style="text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: navy; font-size: 30px;"  >Prezzo totale: <b style="color: black; position: relative; left:20px;">{{calcolaPrezzo()}}€</b></p>
+    <button (click)="acquista()" class="compra" style="font-size: 30px;">Acquista!</button>
+    <br>
+   
+</div>
+<div class = "storico">
+    <app-acquisti *ngIf="storicoAcquisti"></app-acquisti>
+</div>

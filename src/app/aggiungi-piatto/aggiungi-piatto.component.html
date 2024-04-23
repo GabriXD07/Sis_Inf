@@ -1,0 +1,27 @@
+
+<div class="form">
+    <div class="title">Aggiungi Piatto</div>
+    <div class="subtitle">Compila tutti i campi Obbligatori (*)</div>
+
+    <div class="input-container ic1">
+        <input #nomePiatto id="nomePiatto" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="nomePiatto" class="placeholder">* Nome Piatto</label>
+    </div>
+    <div class="input-container ic2">
+        <input #ingredienti id="ingredienti" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="ingredienti" class="placeholder">* Ingredienti</label>
+    </div>
+    <div class="input-container ic2">
+        <input #prezzo  id="prezzo" class="input" type="number" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="prezzo" class="placeholder">* Prezzo</label>
+    </div>
+    <div class="input-container ic2">
+        <input #quantita  id="quantita" class="input" type="number" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="quantita" class="placeholder">* Quantità</label>
+    </div>
+    <button (click)="crea(nomePiatto.value, ingredienti.value , prezzo.valueAsNumber, quantita.valueAsNumber)" type="text" class="submit">Aggiungi</button>
+</div>

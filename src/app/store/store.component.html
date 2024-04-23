@@ -1,0 +1,49 @@
+<!-- ------------------- -->
+
+<ul *ngFor="let i of piatto" list-style-type="none">
+	<li>
+		<div id="container">
+			<div class="product-details">
+
+				<h1>{{i.nomePiatto}}</h1>
+
+				<p class="information">{{i.ingredienti}}</p>
+
+				<div class="control">
+
+					<button class="btn" (click)="aggiungiAlCarrello(data,mail,i.idPiatto, num[piatto.indexOf(i)])">
+						<span class="price">{{i.prezzo}} €</span>
+						<span class="buy">Aggiungi al carrello</span>
+					</button>
+					<br>
+					<div class="plus-min">
+						<button class="plus" (click)="diminuisci(i)">
+							-
+						</button>
+						<p clas="num"><b>{{num[piatto.indexOf(i)]}}</b></p>
+						<button class="minus" (click)="aumenta(i)">
+							+
+						</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="product-image">
+				<div class="info">
+					<h2> Descrizione</h2>
+					<ul>
+						<li><strong>Piatto: </strong>{{i.nomePiatto}} </li>
+						<li><strong>Ingredienti:</strong>{{i.ingredienti}} </li>
+						<li><strong>Prezzo: </strong>{{i.prezzo}}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</li>
+</ul>
+<br>
+<br>
+<br>
+<button class="button" *ngIf="this.utente.ruolo=='admin'" (click)="aggiungiPiatto()">Aggiungi Piatto</button>
